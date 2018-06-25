@@ -5,4 +5,5 @@ package com.xss.admin.common.aop;
  */
 public class Log2Aop {
     //index
+    //index2
 }
