@@ -8,4 +8,5 @@ public class Log2Aop {
     //index2
     //index3
     //index2.0
+    //helloworld
 }
