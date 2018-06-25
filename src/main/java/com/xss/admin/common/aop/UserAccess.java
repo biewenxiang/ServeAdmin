@@ -14,4 +14,5 @@ import java.lang.annotation.Target;
 public @interface UserAccess {
     String desc() default "无信息";
 
+    
 }
