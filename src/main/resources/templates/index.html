@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+
+<body>
+
+<table>
+    <tr>
+        <th>INDEX</th>
+        <th>NAME</th>
+    </tr>
+    <div th:if="1 == 1 ">
+        1
+    </div>
+    <div th:if="1 != 1 ">
+        1 != 1
+    </div>
+    <tr th:each="map,index:${list}">
+        <td th:text="${index.count}">Onions</td>
+        <td th:text="${map.company}">Onions</td>
+    </tr>
+    --------
+    <tr th:each="info,index:${list2}">
+        <td th:text="${index.count}">Onions</td>
+        <td th:text="${info.company}">Onions</td>
+    </tr>
+</table>
+
+
+</body>
+</html>

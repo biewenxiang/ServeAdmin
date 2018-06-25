@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>用户管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link href="../layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link href="../layui/css/global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<style type="text/css">
+    #window {
+        width: 800px;
+        height: 500px;
+        background: white;
+        display: none;
+        padding-top: 30px
+    }
+
+    #black_div {
+        width: 100%;
+        height: 100%;
+        background: black;
+        filter: alpha(opacity : 30);
+        opacity: 0.1;
+        position: fixed;
+        z-index: 500;
+        display: none
+    }
+
+    .layui-form {
+        margin: 0 auto;
+    }
+
+    #search {
+        margin-left: 10px;
+    }
+
+    .layui-form-item {
+        margin-top: 15px;
+    }
+
+</style>
+<div class="layui-form-item">
+    <!--<div class="layui-inline" id="search">-->
+        <!--<label class="layui-form-label">服务器名：</label>-->
+        <!--<div class="layui-input-inline">-->
+            <!--<input type="tel" name="search" lay-verify="required|phone" autocomplete="off" class="layui-input" id="search_name" >-->
+        <!--</div>-->
+        <!--<label class="layui-form-label">服务器ip：</label>-->
+        <!--<div class="layui-input-inline">-->
+            <!--<input type="tel" name="search" lay-verify="required|phone" autocomplete="off" class="layui-input" id="search_ip" >-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<button class="layui-btn layui-btn-primary" id="search_button">搜索</button>-->
+    <button class="layui-btn layui-btn-normal" id="add_button">添加数据</button>
+</div>
+<div id="black_div"></div>
+<table class="layui-hide" id="test" lay-filter="demo"></table>
+<form class="layui-form" id="window" onsubmit="return false">
+    <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+    <input type="hidden" name="userid" />
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-block">
+            <input type="text" placeholder="请输入" autocomplete="off"
+                   class="layui-input" name="username" required>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-block">
+            <input type="text" placeholder="请输入" autocomplete="off"
+                   class="layui-input" name="password" required>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户类型</label>
+        <div class="layui-input-block">
+            <input type="text" placeholder="请输入" autocomplete="off"
+                   class="layui-input" name="usertype" required>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">角色</label>
+        <div class="layui-input-block">
+            <input type="text" placeholder="请输入" autocomplete="off"
+                   class="layui-input" name="roleid" required>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">描述信息</label>
+        <div class="layui-input-block">
+            <input type="text" placeholder="请输入" autocomplete="off"
+                   class="layui-input" name="userdescription" required>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="*"
+                    id="submit_button">立即修改</button>
+            <button class="layui-btn" lay-submit lay-filter="*" id="add">立即添加</button>
+            <button type="reset" class="layui-btn layui-btn-primary"
+                    id="reset_button">重置</button>
+        </div>
+    </div>
+    <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+</form>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="../layui/layui.js"></script>
+<script src="../js/userlist.js"></script>
+</body>
+</html>
