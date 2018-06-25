@@ -6,7 +6,7 @@ package com.xss.admin.common.aop;
 public class Log2Aop {
     //index
     //index2
-    //index3
+    //index3 hello
     //index2.0
     //helloworld
 }
