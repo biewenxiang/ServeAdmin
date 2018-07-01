@@ -8,5 +8,6 @@ public class ServeAdminApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServeAdminApplication.class, args);
+
 	}
 }
