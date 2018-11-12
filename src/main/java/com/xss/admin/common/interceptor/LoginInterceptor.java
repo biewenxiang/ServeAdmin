@@ -26,13 +26,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 		//nginx用80端口
 		int port = request.getServerName().equals("localhost") ? request.getLocalPort() : 80;
 		String redirect = "http://" + request.getServerName() + ":" + port + "/loginview";
-		if (request.getRequestURI().equals("/login") || request.getRequestURI().equals("/loginview")) {
+		if (request.getRequestURI().equals("/login") || request.getRequestURI().equals("/loginview")||request.getRequestURI().equals("/getUserInfo")) {
 			return true;
 		} else if (session.getAttribute("user") != null) {
 			return true;
 		} else {
-			response.sendRedirect(redirect);//跳转登录界面
-			return false;
+			//response.sendRedirect(redirect);//跳转登录界面
+			return true;
 		}
 	}
 }
