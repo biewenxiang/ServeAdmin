@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -30,10 +31,10 @@ public class UserController {
 
     @RequestMapping("/user/json")
     @ResponseBody
-    @UserAccess
+//    @UserAccess
     public String json(Model model, int page, int limit) {
         PageHelper.startPage(NumberUtils.toInt(page, 1), NumberUtils.toInt(limit, 10));
-        List<User> list2 = userService.search();
+        List<User> list2 = new ArrayList<>();
         PageInfo pageInfo = new PageInfo<>(list2);
         String json = AjaxJson.getJson2UI(pageInfo);
         return json;
