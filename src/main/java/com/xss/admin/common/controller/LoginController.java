@@ -59,68 +59,6 @@ public class LoginController {
         return islogin;
     }
 
-    @ResponseBody
-    @RequestMapping("/getUserInfo")
-    public String getInfo(String code, HttpServletRequest request, String password) throws Exception {
-        String results = "";
-        if (StringUtils.isNotBlank(code)) {
-            System.out.println(code);
-            String url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + TokenCache.appid + "&secret="+TokenCache.secret+"&js_code=" + code + "&grant_type=authorization_code";
-            results = HttpUtil.getUrlContent(url);
-            System.out.println(results);
-            JSONObject jsonObject = JSONObject.parseObject(results);
-            if (jsonObject.get("openid") != null) {
-                JSONObject jsonObject1 = new JSONObject();
-                jsonObject1.put("openid", jsonObject.get("openid"));
-                results = jsonObject1.toJSONString();
-            }
-        }
-
-        //System.out.println(results);
-        return results;
-    }
-
-    @ResponseBody
-    @RequestMapping("/addformid")
-    public String addfromid(String openid, HttpServletRequest request, String formid) throws Exception {
-        String results = "";
-        if (!"".equals(openid) && !"".equals(formid)) {
-            System.out.println(openid + "" + formid);
-            JSONObject jsonObject1 = new JSONObject();
-            jsonObject1.put("openid", openid);
-            jsonObject1.put("formid", formid);
-            results = jsonObject1.toJSONString();
-        }
-        System.out.println(results);
-        return results;
-    }
-
-    @ResponseBody
-    @RequestMapping("/addUserInfo")
-    public String addUserInfo(String openid, HttpServletRequest request, String nickname) throws Exception {
-        String results = "";
-        if (StringUtils.isNotBlank(openid) && !"".equals(nickname)) {
-            String realnickname = "select realnickname from table where openid = ?";//数据库中存的微信名
-            if ("".equals(realnickname)) {
-                //添加openID与Nickname到数据库
-                System.out.println(openid + "" + nickname);
-
-            } else if (!realnickname.equals(nickname)) {
-                //更新Nickname
-                System.out.println(openid + "" + nickname);
-            }
-            System.out.println(openid + "" + nickname);
-            JSONObject jsonObject1 = new JSONObject();
-            jsonObject1.put("openid", openid);
-            jsonObject1.put("nickname", nickname);
-
-            results = jsonObject1.toJSONString();
-        }
-
-        //System.out.println(results);
-        return results;
-    }
-
     @RequestMapping("/loginout")
     public String magPriceLoginOut(Model model, HttpSession session) {
         session.removeAttribute("user");
