@@ -8,5 +8,7 @@ public class Testapi3 {
 
 
     private String aa = "";
+    private static String bb= " ";
+
 
 }
