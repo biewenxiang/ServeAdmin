@@ -67,6 +67,8 @@ public class AjaxJson {
         json.put("code", 0);
         json.put("count", a.getTotal());
         json.put("data", a.getList());
+        json.put("status", "success");
+
         return json.toJSONString();
     }
 }
