@@ -1,2 +1,2 @@
 # ServeAdmin
-helloworld 1
+test
